@@ -27,25 +27,72 @@
         <p>Choose size, base style, and optional paint/detailing.</p>
 
         <form id="productForm">
-          <label>Size</label>
-          <select name="size" id="size">
-            <option value="small" data-price="0">Small — base</option>
-            <option value="large" data-price="8">Large — +$8</option>
+          <label for="size">Size</label>
+          <select id="size" name="size">
+            <option value="3in">3 in</option>
+            <option value="5in">5 in</option>
           </select>
 
-          <label>Base Style</label>
-          <select name="base" id="base">
-            <option value="standard" data-price="0">Standard — base</option>
-            <option value="engraved" data-price="12">Engraved — +$12</option>
-          </select>
+          <fieldset style="margin-top:10px">
+            <legend>Variant</legend>
+            <label><input type="radio" name="variant" value="couple" checked> Couple (default)</label>
+            <label style="margin-left:12px"><input type="radio" name="variant" value="single"> Single (half price)</label>
+          </fieldset>
 
-          <label><input type="checkbox" id="painted" data-price="18"> Hand-painted details (+$18)</label>
+          <fieldset>
+            <legend>Color Options</legend>
+            <label><input type="radio" name="color" value="1" checked> 1 color <span class="opt-price" data-color="1"></span></label><br>
+            <label><input type="radio" name="color" value="2"> 2 color <span class="opt-price" data-color="2"></span></label><br>
+            <label><input type="radio" name="color" value="3"> 3 color <span class="opt-price" data-color="3"></span></label><br>
+            <label><input type="radio" name="color" value="4"> 4 color <span class="opt-price" data-color="4"></span></label><br>
+            <label><input type="radio" name="color" value="plain"> Plain (no color) <span class="opt-price" data-color="plain"></span></label>
+          </fieldset>
 
+          <!-- Price display -->
           <div style="margin-top:12px">
-            <strong>Price: $<span id="price">10</span></strong>
+            <strong>Price: $<span id="price">25.00</span></strong>
           </div>
 
           <p style="margin-top:12px"><a class="btn" href="#" id="addToCart">Add to Cart</a></p>
+
+          <!-- Embedded price table for sizes and color choices (absolute prices) -->
+          <script type="application/json" id="priceTable">
+          {
+            "3in": { "1": 25.00, "2": 32.50, "3": 35.00, "4": 45.00, "plain": 10.00 },
+            "5in": { "1": 30.00, "2": 37.00, "3": 40.00, "4": 45.00, "plain": 15.00 }
+          }
+          </script>
+          <!-- Visible price breakdown table -->
+          <div class="table-wrap">
+          <table class="price-table" aria-label="Price table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th data-color="plain">Plain</th>
+                <th data-color="1">1 color</th>
+                <th data-color="2">2 color</th>
+                <th data-color="3">3 color</th>
+                <th data-color="4">4 color</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-size="3in"><td>3 in</td>
+                <td data-color="plain" data-price-couple="10.00">$10.00</td>
+                <td data-color="1" data-price-couple="25.00">$25.00</td>
+                <td data-color="2" data-price-couple="32.50">$32.50</td>
+                <td data-color="3" data-price-couple="35.00">$35.00</td>
+                <td data-color="4" data-price-couple="45.00">$45.00</td>
+              </tr>
+              <tr data-size="5in"><td>5 in</td>
+                <td data-color="plain" data-price-couple="15.00">$15.00</td>
+                <td data-color="1" data-price-couple="30.00">$30.00</td>
+                <td data-color="2" data-price-couple="37.00">$37.00</td>
+                <td data-color="3" data-price-couple="40.00">$40.00</td>
+                <td data-color="4" data-price-couple="45.00">$45.00</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
         </form>
       </div>
     </div>

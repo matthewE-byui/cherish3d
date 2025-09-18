@@ -27,27 +27,73 @@
         <p>Start with a base scan of the couple, select size and finish options, and choose expedited production if you need it faster.</p>
 
         <form id="productForm">
-          <label>Size</label>
+          <label for="size">Size</label>
           <select name="size" id="size">
-            <option value="small" data-price="0">Small (4") — base</option>
-            <option value="medium" data-price="10">Medium (6") — +$10</option>
-            <option value="large" data-price="25">Large (8") — +$25</option>
+            <option value="7in">7 in</option>
+            <option value="10in">10 in</option>
+            <option value="custom">Custom (contact)</option>
           </select>
 
-          <label>Finish</label>
-          <select name="finish" id="finish">
-            <option value="matte" data-price="0">Matte — base</option>
-            <option value="gloss" data-price="7">Gloss — +$7</option>
-            <option value="painted" data-price="35">Hand-painted — +$35</option>
-          </select>
+          <fieldset style="margin-top:10px">
+            <legend>Variant</legend>
+            <label><input type="radio" name="variant" value="couple" checked> Couple (default)</label>
+            <label style="margin-left:12px"><input type="radio" name="variant" value="single"> Single (half price)</label>
+          </fieldset>
 
-          <label><input type="checkbox" id="expedite" data-price="20"> Expedite production (+$20)</label>
+          <fieldset>
+            <legend>Color Options</legend>
+            <label><input type="radio" name="color" value="1" checked> 1 color <span class="opt-price" data-color="1"></span></label><br>
+            <label><input type="radio" name="color" value="2"> 2 color <span class="opt-price" data-color="2"></span></label><br>
+            <label><input type="radio" name="color" value="3"> 3 color <span class="opt-price" data-color="3"></span></label><br>
+            <label><input type="radio" name="color" value="4"> 4 color <span class="opt-price" data-color="4"></span></label>
+            <br>
+            <label><input type="radio" name="color" value="plain"> Plain (no color) <span class="opt-price" data-color="plain"></span></label>
+          </fieldset>
 
           <div style="margin-top:12px">
-            <strong>Price: $<span id="price">15</span></strong>
+            <strong>Price: $<span id="price">60.00</span></strong>
           </div>
 
           <p style="margin-top:12px"><a class="btn" href="#" id="addToCart">Add to Cart</a></p>
+
+          <script type="application/json" id="priceTable">
+          {
+            "7in": { "1": 60.00, "2": 65.00, "3": 70.00, "4": 75.00, "plain": 25.00 },
+            "10in": { "1": 65.00, "2": 75.00, "3": 80.00, "4": 85.00, "plain": 35.00 }
+          }
+          </script>
+          <!-- Visible price breakdown table -->
+            <div class="table-wrap">
+            <table class="price-table" aria-label="Price table">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th data-color="plain">Plain</th>
+                <th data-color="1">1 color</th>
+                <th data-color="2">2 color</th>
+                <th data-color="3">3 color</th>
+                <th data-color="4">4 color</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr data-size="7in"><td>7 in</td>
+                  <td data-color="plain" data-price-couple="25.00">$25.00</td>
+                  <td data-color="1" data-price-couple="60.00">$60.00</td>
+                  <td data-color="2" data-price-couple="65.00">$65.00</td>
+                  <td data-color="3" data-price-couple="70.00">$70.00</td>
+                  <td data-color="4" data-price-couple="75.00">$75.00</td>
+                </tr>
+                <tr data-size="10in"><td>10 in</td>
+                  <td data-color="plain" data-price-couple="35.00">$35.00</td>
+                  <td data-color="1" data-price-couple="65.00">$65.00</td>
+                  <td data-color="2" data-price-couple="75.00">$75.00</td>
+                  <td data-color="3" data-price-couple="80.00">$80.00</td>
+                  <td data-color="4" data-price-couple="85.00">$85.00</td>
+                </tr>
+            </tbody>
+            </table>
+            </div>
+  <p class="muted" style="font-size:0.95em;margin-top:6px">Note: Visible table shows couple prices by default. Toggle "Single" above to see single prices (half of the couple prices). The chart updates immediately when you switch.</p>
         </form>
       </div>
     </div>

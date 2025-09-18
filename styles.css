@@ -170,3 +170,17 @@ footer {
   .carousel-slide img{ height:260px }
   .carousel-caption{ bottom:10% }
 }
+
+/* Price table styles */
+.price-table{ width:100%; border-collapse:collapse; margin-top:14px; background:#fff }
+.price-table th, .price-table td{ border:1px solid #f2e8da; padding:8px; text-align:center }
+.price-table thead th{ background:#f9f6f2; color:#6b4c3b }
+.price-table tbody tr:nth-child(odd){ background:#fff }
+.price-table tbody tr:nth-child(even){ background:#fbf8f5 }
+
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.price-table tr.selected { background: linear-gradient(90deg, #fff7e6, #fff0cc); outline: 2px solid #ffd27a; }
+
+/* Column highlight: when .price-table has .highlight-color-<key>, highlight td[data-color="<key>"] and th[data-color="<key>"] */
+.price-table th[data-color], .price-table td[data-color] { transition: background-color 0.18s ease, color 0.18s ease; }
+.price-table[class*="highlight-color-"] th[data-color], .price-table[class*="highlight-color-"] td[data-color] { background: #fff3d9; }
