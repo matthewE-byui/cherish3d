@@ -117,3 +117,35 @@ footer {
   margin-top: 2rem;
   border-top: 2px solid #f2e8da;
 }
+
+/* HERO / Banner */
+.hero{
+  background: url('images/hero.jpg') center/cover no-repeat;
+  min-height: 320px;
+  display:flex;
+  align-items:center;
+}
+.hero-overlay{
+  width:100%;
+  background:linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.15));
+}
+.hero-content{
+  color:#fff;
+  text-align:left;
+  padding:3rem 2rem;
+}
+.hero h2{font-size:2.2rem;color:#fff;margin-bottom:0.5rem}
+.hero-lead{max-width:720px;color:rgba(255,255,255,0.92);margin-bottom:1rem}
+
+/* Gallery tweaks */
+.gallery-section h3{ text-align:center; color:#6b4c3b; }
+.muted{ text-align:center; color:#7b6c63; margin-bottom:1rem }
+.gallery .card{ padding:0; border:none; box-shadow:none }
+.gallery .card img{ border-radius:8px 8px 0 0; height:220px; object-fit:cover }
+.gallery .card h3{ padding:0.8rem }
+
+@media (max-width:600px){
+  .hero{ min-height:240px }
+  .hero-content{ padding:2rem 1rem }
+  .hero h2{ font-size:1.6rem }
+}
