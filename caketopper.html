@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cake Topper — Cherish3D</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Cherish3D</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Cake Topper</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images/cake-topper.jpg" alt="Cake Topper">
+      </div>
+      <div class="card">
+        <h3>Customize your cake topper</h3>
+        <p>Choose size, base style, and optional paint/detailing.</p>
+
+        <form id="productForm">
+          <label>Size</label>
+          <select name="size" id="size">
+            <option value="small" data-price="0">Small — base</option>
+            <option value="large" data-price="8">Large — +$8</option>
+          </select>
+
+          <label>Base Style</label>
+          <select name="base" id="base">
+            <option value="standard" data-price="0">Standard — base</option>
+            <option value="engraved" data-price="12">Engraved — +$12</option>
+          </select>
+
+          <label><input type="checkbox" id="painted" data-price="18"> Hand-painted details (+$18)</label>
+
+          <div style="margin-top:12px">
+            <strong>Price: $<span id="price">10</span></strong>
+          </div>
+
+          <p style="margin-top:12px"><a class="btn" href="#" id="addToCart">Add to Cart</a></p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Cherish3D</p>
+  </footer>
+  <script src="product-detail.js" defer></script>
+</body>
+</html>

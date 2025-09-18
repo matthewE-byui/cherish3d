@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Baby Hand Keepsake — Cherish3D</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Cherish3D</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Baby Hand Keepsake</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images/handprint.jpg" alt="Baby Hand Keepsake">
+      </div>
+      <div class="card">
+        <h3>Customize your keepsake</h3>
+        <p>Choose material, size, and optional painting.</p>
+
+        <form id="productForm">
+          <label>Material</label>
+          <select name="material" id="material">
+            <option value="resin" data-price="0">Resin — base</option>
+            <option value="ceramic" data-price="15">Ceramic — +$15</option>
+          </select>
+
+          <label>Size</label>
+          <select name="size" id="size">
+            <option value="standard" data-price="0">Standard — base</option>
+            <option value="large" data-price="10">Large — +$10</option>
+          </select>
+
+          <label><input type="checkbox" id="painted" data-price="12"> Add painting (+$12)</label>
+
+          <div style="margin-top:12px">
+            <strong>Price: $<span id="price">12</span></strong>
+          </div>
+
+          <p style="margin-top:12px"><a class="btn" href="#" id="addToCart">Add to Cart</a></p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Cherish3D</p>
+  </footer>
+  <script src="product-detail.js" defer></script>
+</body>
+</html>

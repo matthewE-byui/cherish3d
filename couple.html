@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Wedding Couple Figurine — Cherish3D</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Cherish3D</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Wedding Couple Figurine</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="images/couple.jpg" alt="Wedding Couple Figurine">
+      </div>
+      <div class="card">
+        <h3>Customize your figurine</h3>
+        <p>Start with a base scan of the couple, select size and finish options, and choose expedited production if you need it faster.</p>
+
+        <form id="productForm">
+          <label>Size</label>
+          <select name="size" id="size">
+            <option value="small" data-price="0">Small (4") — base</option>
+            <option value="medium" data-price="10">Medium (6") — +$10</option>
+            <option value="large" data-price="25">Large (8") — +$25</option>
+          </select>
+
+          <label>Finish</label>
+          <select name="finish" id="finish">
+            <option value="matte" data-price="0">Matte — base</option>
+            <option value="gloss" data-price="7">Gloss — +$7</option>
+            <option value="painted" data-price="35">Hand-painted — +$35</option>
+          </select>
+
+          <label><input type="checkbox" id="expedite" data-price="20"> Expedite production (+$20)</label>
+
+          <div style="margin-top:12px">
+            <strong>Price: $<span id="price">15</span></strong>
+          </div>
+
+          <p style="margin-top:12px"><a class="btn" href="#" id="addToCart">Add to Cart</a></p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Cherish3D</p>
+  </footer>
+  <script src="product-detail.js" defer></script>
+</body>
+</html>
