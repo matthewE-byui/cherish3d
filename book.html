@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Book an Appointment — Cherish3D</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Cherish3D</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="book.html">Book</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Book an Appointment</h2>
+    <p class="muted">We are open Monday–Saturday, 9:00 am — 5:00pm. Pick a date and time that works for you.</p>
+
+    <form id="bookingForm">
+      <label for="name">Your name</label>
+      <input id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="date">Date</label>
+      <input id="date" name="date" type="date" required>
+
+      <label for="timeHour">Time</label>
+      <div class="time-selects">
+        <select id="timeHour" name="timeHour" required>
+          <option value="">Hour</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+        </select>
+        <select id="timeMin" name="timeMin" required>
+          <option value="">Min</option>
+          <option value="00">00</option>
+          <option value="15">15</option>
+          <option value="30">30</option>
+          <option value="45">45</option>
+        </select>
+      </div>
+
+      <p style="margin-top:12px"><button class="btn" id="bookBtn">Request Appointment</button></p>
+      <p id="bookingMessage" class="muted" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer>
+    <p>© 2025 Cherish3D</p>
+  </footer>
+  <script src="book.js" defer></script>
+</body>
+</html>
