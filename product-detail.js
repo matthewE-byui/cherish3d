@@ -199,4 +199,46 @@ document.addEventListener('DOMContentLoaded', ()=>{
       alert('This is a mock site — cart functionality isn\'t implemented. Selected price: $' + priceEl.textContent + "\n(Variant: " + (form.querySelector('input[name=\"variant\"]:checked')?.value || 'couple') + ")");
     });
   }
+
+  // Book & Pay: capture current selection, save to localStorage and redirect to checkout
+  const bookPayBtn = document.getElementById('bookPay');
+  if(bookPayBtn){
+    bookPayBtn.addEventListener('click', (e)=>{
+      e.preventDefault();
+      // gather selection data
+      try{
+        const title = document.querySelector('h2')?.textContent?.trim() || document.title || 'Product';
+        const url = window.location.pathname.split('/').pop() || window.location.href;
+        const size = form.querySelector('select[name="size"], select#size')?.value || null;
+        const color = form.querySelector('input[name="color"]:checked')?.value || null;
+        const variant = form.querySelector('input[name="variant"]:checked')?.value || null;
+        const price = parseFloat((priceEl.textContent||'').replace(/[^0-9.]/g, '')) || 0;
+        // extras: any checked checkboxes or selects with data-price
+        const extras = [];
+        form.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
+          if(cb.checked){ extras.push({ name: cb.name || cb.id || cb.value, value: cb.value, price: parseFloat(cb.dataset.price||0)||0 }); }
+        });
+        form.querySelectorAll('select').forEach(s=>{
+          const opt = s.options[s.selectedIndex];
+          if(opt && (parseFloat(opt.dataset.price||0) || 0) !== 0){
+            extras.push({ name: s.name||s.id, value: opt.value, price: parseFloat(opt.dataset.price||0)||0 });
+          }
+        });
+
+        const payload = {
+          productTitle: title,
+          productUrl: url,
+          selections: { size, color, variant, extras },
+          price: price,
+          savedAt: (new Date()).toISOString()
+        };
+  localStorage.setItem('cherish3d_checkout', JSON.stringify(payload));
+  // redirect to cart page first (user can continue to checkout from Cart)
+  window.location.href = 'cart.html';
+      }catch(err){
+        console.warn('Failed to capture selection for Book & Pay', err);
+        alert('Could not start Book & Pay. Please try again.');
+      }
+    });
+  }
 });
