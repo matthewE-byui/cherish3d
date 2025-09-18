@@ -22,13 +22,45 @@
   </header>
 
   <!-- WELCOME PAGE -->
-  <!-- HERO / Banner -->
-  <section class="hero">
-    <div class="hero-overlay">
-      <div class="container hero-content">
-        <h2>Welcome to Cherish3D</h2>
-        <p class="hero-lead">Timeless 3D-printed keepsakes — custom-scanned and printed to preserve your most meaningful moments.</p>
-        <p><a class="btn" href="products.html">See Our Products</a></p>
+  <!-- HERO / Carousel -->
+  <section class="hero" aria-label="Featured works">
+    <div class="carousel" id="heroCarousel">
+      <div class="carousel-track">
+        <div class="carousel-slide" data-index="0" aria-hidden="false">
+          <img src="images/hero1.jpg" alt="Wedding figurine on display">
+          <div class="carousel-caption container">
+            <h2>Custom Wedding Figurines</h2>
+            <p class="hero-lead">Capture the moment with a 3D-printed keepsake.</p>
+            <p><a class="btn" href="products.html">See Our Products</a></p>
+          </div>
+        </div>
+        <div class="carousel-slide" data-index="1" aria-hidden="true">
+          <img src="images/hero2.jpg" alt="Baby keepsake figurine">
+          <div class="carousel-caption container">
+            <h2>Baby Keepsakes</h2>
+            <p class="hero-lead">Tiny hands and feet preserved forever.</p>
+            <p><a class="btn" href="products.html">Browse Baby Keepsakes</a></p>
+          </div>
+        </div>
+        <div class="carousel-slide" data-index="2" aria-hidden="true">
+          <img src="images/hero3.jpg" alt="Personalized cake topper">
+          <div class="carousel-caption container">
+            <h2>Personalized Cake Toppers</h2>
+            <p class="hero-lead">Make your cake uniquely yours.</p>
+            <p><a class="btn" href="products.html">Shop Toppers</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- controls -->
+      <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+      <button class="carousel-btn next" aria-label="Next slide">›</button>
+
+      <!-- indicators -->
+      <div class="carousel-indicators" role="tablist" aria-label="Carousel Indicators">
+        <button class="indicator" data-slide-to="0" aria-label="Show slide 1" aria-selected="true"></button>
+        <button class="indicator" data-slide-to="1" aria-label="Show slide 2" aria-selected="false"></button>
+        <button class="indicator" data-slide-to="2" aria-label="Show slide 3" aria-selected="false"></button>
       </div>
     </div>
   </section>
@@ -58,5 +90,6 @@
     <p>© 2025 Cherish3D | Boise, ID</p>
   </footer>
 
+  <script src="scripts.js" defer></script>
 </body>
 </html>

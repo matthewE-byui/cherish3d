@@ -149,3 +149,24 @@ footer {
   .hero-content{ padding:2rem 1rem }
   .hero h2{ font-size:1.6rem }
 }
+
+/* Carousel specific styles */
+.carousel{ position:relative; overflow:hidden }
+.carousel-track{ position:relative }
+.carousel-slide{ display:none; position:relative }
+.carousel-slide img{ width:100%; height:420px; object-fit:cover; display:block }
+.carousel-caption{ position:absolute; left:0; bottom:18%; color:#fff }
+
+.carousel-btn{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.4); color:#fff; border:0; width:42px; height:42px; border-radius:50%; cursor:pointer }
+.carousel-btn.prev{ left:12px }
+.carousel-btn.next{ right:12px }
+.carousel-btn:focus{ outline:2px solid #fff }
+
+.carousel-indicators{ position:absolute; left:50%; transform:translateX(-50%); bottom:12px; display:flex; gap:8px }
+.indicator{ width:12px; height:12px; border-radius:50%; background:rgba(255,255,255,0.5); border:0; cursor:pointer }
+.indicator[aria-selected="true"]{ background:#fff }
+
+@media (max-width:800px){
+  .carousel-slide img{ height:260px }
+  .carousel-caption{ bottom:10% }
+}
