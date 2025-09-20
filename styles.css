@@ -207,3 +207,28 @@ footer {
 /* Column highlight: when .price-table has .highlight-color-<key>, highlight td[data-color="<key>"] and th[data-color="<key>"] */
 .price-table th[data-color], .price-table td[data-color] { transition: background-color 0.18s ease, color 0.18s ease; }
 .price-table[class*="highlight-color-"] th[data-color], .price-table[class*="highlight-color-"] td[data-color] { background: #fff3d9; }
+
+
+
+
+
+.product-description {
+  margin: 40px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+.product-description h2,
+.product-description h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.product-description ul {
+  margin: 10px 0 0 20px;
+  padding: 0;
+  list-style-type: disc;
+}
