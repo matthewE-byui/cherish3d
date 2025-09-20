@@ -242,6 +242,12 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 });
+
+
+
+
+
+
 document.querySelectorAll('.image-carousel').forEach(carousel => {
   const images = carousel.querySelectorAll('img');
   let index = 0;
@@ -281,4 +287,50 @@ document.querySelectorAll('.image-carousel').forEach(carousel => {
   });
 
   showImage(index);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sizeSelect = document.getElementById("size");
+  const carousel = document.getElementById("figurine-carousel");
+  const images = carousel.querySelectorAll("img");
+  const prevBtn = carousel.querySelector(".prev");
+  const nextBtn = carousel.querySelector(".next");
+  let currentIndex = 0;
+  let currentSize = sizeSelect.value;
+
+  // Show only images for the current size
+  function updateImages() {
+    images.forEach((img, i) => {
+      img.style.display = img.dataset.size === currentSize ? "none" : "none";
+      img.classList.remove("active");
+    });
+    const visibleImgs = Array.from(images).filter(img => img.dataset.size === currentSize);
+    if (visibleImgs.length > 0) {
+      currentIndex = 0;
+      visibleImgs[currentIndex].style.display = "block";
+      visibleImgs[currentIndex].classList.add("active");
+    }
+  }
+
+  // Change size updates images
+  sizeSelect.addEventListener("change", (e) => {
+    currentSize = e.target.value;
+    updateImages();
+  });
+
+  // Next / Prev buttons
+  function showImage(step) {
+    const visibleImgs = Array.from(images).filter(img => img.dataset.size === currentSize);
+    visibleImgs[currentIndex].style.display = "none";
+    visibleImgs[currentIndex].classList.remove("active");
+    currentIndex = (currentIndex + step + visibleImgs.length) % visibleImgs.length;
+    visibleImgs[currentIndex].style.display = "block";
+    visibleImgs[currentIndex].classList.add("active");
+  }
+
+  prevBtn.addEventListener("click", () => showImage(-1));
+  nextBtn.addEventListener("click", () => showImage(1));
+
+  // Init
+  updateImages();
 });
