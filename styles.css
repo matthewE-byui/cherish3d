@@ -20,6 +20,10 @@ header {
   text-align: center;
   padding: 1.5rem 1rem;
 }
+header h1 a {
+  text-decoration: none;
+  color: inherit; /* keeps the same #444 or whatever color h1 is */
+}
 
 header h1 {
   font-size: 2rem;
