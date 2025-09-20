@@ -242,3 +242,43 @@ document.addEventListener('DOMContentLoaded', ()=>{
     });
   }
 });
+document.querySelectorAll('.image-carousel').forEach(carousel => {
+  const images = carousel.querySelectorAll('img');
+  let index = 0;
+  let currentSize = "3in"; // default
+
+  const showImage = (i) => {
+    // hide all
+    images.forEach(img => {
+      img.classList.remove('active');
+      img.style.display = "none";
+    });
+    // show only current size
+    const visible = Array.from(images).filter(img => img.dataset.size === currentSize);
+    if (visible.length > 0) {
+      visible[i % visible.length].classList.add('active');
+      visible[i % visible.length].style.display = "block";
+    }
+  };
+
+  carousel.querySelector('.prev').addEventListener('click', () => {
+    const visible = Array.from(images).filter(img => img.dataset.size === currentSize);
+    index = (index - 1 + visible.length) % visible.length;
+    showImage(index);
+  });
+
+  carousel.querySelector('.next').addEventListener('click', () => {
+    const visible = Array.from(images).filter(img => img.dataset.size === currentSize);
+    index = (index + 1) % visible.length;
+    showImage(index);
+  });
+
+  // Listen for size changes
+  document.getElementById("size").addEventListener("change", (e) => {
+    currentSize = e.target.value;
+    index = 0; // reset to first image
+    showImage(index);
+  });
+
+  showImage(index);
+});

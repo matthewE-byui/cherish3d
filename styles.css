@@ -237,3 +237,39 @@ footer {
   padding: 0;
   list-style-type: disc;
 }
+
+.image-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-carousel img {
+  display: none;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.image-carousel img.active {
+  display: block;
+}
+
+.image-carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.image-carousel button.prev {
+  left: 5px;
+}
+
+.image-carousel button.next {
+  right: 5px;
+}
