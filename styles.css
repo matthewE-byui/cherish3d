@@ -21,8 +21,9 @@ header {
   padding: 1.5rem 1rem;
 }
 header h1 a {
-  text-decoration: none;
-  color: inherit; /* keeps the same #444 or whatever color h1 is */
+  text-decoration: none;   /* removes underline */
+  color: inherit;          /* uses the same color as <h1> */
+  font: inherit;           /* keeps the same font/size */
 }
 
 header h1 {
